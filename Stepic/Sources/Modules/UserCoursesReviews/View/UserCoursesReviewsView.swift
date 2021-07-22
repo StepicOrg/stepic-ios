@@ -25,6 +25,10 @@ final class UserCoursesReviewsView: UIView {
         tableView.separatorStyle = .none
         tableView.keyboardDismissMode = .interactive
 
+        if #available(iOS 15.0, *) {
+            tableView.sectionHeaderTopPadding = 0
+        }
+
         tableView.refreshControl = self.refreshControl
         self.refreshControl.addTarget(self, action: #selector(self.refreshControlDidChangeValue), for: .valueChanged)
 

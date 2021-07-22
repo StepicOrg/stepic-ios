@@ -497,8 +497,13 @@ final class HorizontalCourseListView: CourseListView, UICollectionViewDelegate, 
         self.collectionView.delegate = self
         self.collectionView.dataSource = self
 
+        self.collectionView.showsVerticalScrollIndicator = false
         // Make scroll faster
         self.collectionView.decelerationRate = .fast
+
+        if #available(iOS 15.0, *) {
+            self.collectionView.contentInsetAdjustmentBehavior = .never
+        }
     }
 
     @available(*, unavailable)

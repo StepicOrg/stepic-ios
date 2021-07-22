@@ -6,7 +6,7 @@ final class SubmissionFeedbackValueTransformer: NSSecureUnarchiveFromDataTransfo
     static let name = NSValueTransformerName(rawValue: String(describing: SubmissionFeedbackValueTransformer.self))
 
     override static var allowedTopLevelClasses: [AnyClass] {
-        [SubmissionFeedback.self, NSArray.self]
+        [SubmissionFeedback.self, NSArray.self, NSString.self]
     }
 
     static func register() {

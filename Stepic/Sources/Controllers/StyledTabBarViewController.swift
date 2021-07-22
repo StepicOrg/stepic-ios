@@ -46,6 +46,14 @@ final class StyledTabBarViewController: UITabBarController {
         self.tabBar.unselectedItemTintColor = Appearance.unselectedItemTintColor
         self.tabBar.isTranslucent = false
 
+        if #available(iOS 15.0, *) {
+            let appearance = UITabBarAppearance()
+            appearance.configureWithOpaqueBackground()
+            appearance.backgroundColor = Appearance.barTintColor
+            self.tabBar.standardAppearance = appearance
+            self.tabBar.scrollEdgeAppearance = self.tabBar.standardAppearance
+        }
+
         let tabBarViewControllers = self.items.map { tabBarItem -> UIViewController in
             let viewController = tabBarItem.controller
             viewController.tabBarItem = tabBarItem.makeTabBarItem()

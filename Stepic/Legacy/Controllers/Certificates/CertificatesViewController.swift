@@ -69,6 +69,10 @@ final class CertificatesViewController: UIViewController, ControllerWithStepikPl
         tableView.delegate = self
         tableView.dataSource = self
 
+        if #available(iOS 15.0, *) {
+            tableView.sectionHeaderTopPadding = 0
+        }
+
         let isMe = AuthInfo.shared.userId != nil && self.userID == AuthInfo.shared.userId
         if isMe {
             self.tableView.emptySetPlaceholder = StepikPlaceholder(.emptyCertificatesMe) { [weak self] in

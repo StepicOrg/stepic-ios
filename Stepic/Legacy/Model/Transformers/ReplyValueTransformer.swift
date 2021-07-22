@@ -6,7 +6,7 @@ final class ReplyValueTransformer: NSSecureUnarchiveFromDataTransformer {
     static let name = NSValueTransformerName(rawValue: String(describing: ReplyValueTransformer.self))
 
     override static var allowedTopLevelClasses: [AnyClass] {
-        [Reply.self, NSArray.self, TableReplyChoice.self, TableReplyChoice.Column.self]
+        [Reply.self, NSArray.self, TableReplyChoice.self, TableReplyChoice.Column.self, NSNumber.self, NSString.self]
     }
 
     static func register() {
